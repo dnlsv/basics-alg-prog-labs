@@ -1,0 +1,35 @@
+
+void begin(int &numst, int &kol, Student **arr)
+{
+	long len;
+	view(temp);
+	printf("Введите номер студента\n");
+	scanf_s("%d", &numst);
+
+	fopen_s(&fst, WAYDAT, "rb");
+	len = _filelength(_fileno(fst));
+	kol = len / siz;
+	*arr = new Student[kol];
+	for (int i = 0; i < kol; i++) {
+		fread((*arr + i), siz, 1, fst);
+	}
+	fclose(fst);
+}
+
+void end(int &kol, Student *arr)
+{
+	printf_s("\n\tИзмененный список студентов:\n");
+	fopen_s(&ftxt, WAYTXT, "w");//TXT
+	for (int i = 0; i < kol; i++) {
+		printf_s("№%d\n", i + 1);
+		Out(arr[i], ftxt);
+	}
+	fopen_s(&fst, WAYDAT, "wb");
+	for (int i = 0; i < kol; i++)
+		fwrite(&arr[i], siz, 1, fst);
+	fclose(fst);
+	fclose(ftxt);//TXT
+	delete[]arr;
+}
+
+//while (getchar() != '\n');
