@@ -1,4 +1,0 @@
-﻿  Main.cpp
-c:\users\denis\source\repos\2 лаба доп задание\2 лаба доп задание\main.cpp(23): warning C4326: возвращаемый тип "main" должен быть "int", а не "void"
-c:\users\denis\source\repos\2 лаба доп задание\2 лаба доп задание\main.cpp(40): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
-  2 Лаба Доп Задание.vcxproj -> C:\Users\denis\source\repos\2 Лаба Доп Задание\Debug\2 Лаба Доп Задание.exe

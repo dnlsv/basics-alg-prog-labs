@@ -1,0 +1,9 @@
+# MS Visual Studio #
+.vs
+Out/
+
+# Borland C++ Builder #
+*.~*
+
+# Common #
+Debug/
