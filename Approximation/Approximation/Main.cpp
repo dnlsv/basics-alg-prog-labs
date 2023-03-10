@@ -5,15 +5,15 @@
 
 using namespace std;
 
-double Mn_New(double *, double , int, double *);
-double* coeffs(double *, double *, int);
+double Mn_New(double*, double, int, double*);
+double* coeffs(double*, double*, int);
 double fun(double);
-void checkInt(double &);
-void checkDouble(double &);
+void checkInt(double&);
+void checkDouble(double&);
 
 int main() {
 	setlocale(LC_ALL, ".UTF8");
-	double x, h, h1, a, b, *mas_x, *mas_y_t, *mas_y, *d;
+	double x, h, h1, a, b, * mas_x, * mas_y_t, * mas_y, * d;
 	int i;
 	double m, n;
 
@@ -26,7 +26,7 @@ int main() {
 			break;
 		else
 			cout << "Error!" << endl;
-	}	
+	}
 	cout << "Введите m" << endl;
 	checkInt(m);
 	cout << "Введите n" << endl;
@@ -39,7 +39,7 @@ int main() {
 	mas_y_t = new double[n + 1];
 	mas_y = new double[m + 1];
 	d = new double[n + 1];
-	
+
 	for (x = a, i = 0; i < m; i++) {
 		mas_x[i] = x;
 		x += h;
@@ -70,15 +70,15 @@ int main() {
 //------------------------------ Исходная функция f(x) -----------------------------------------
 double fun(double x) {
 	double p, t, r;
-	p = x * x*x;
-	t = 5 * x*x;
+	p = x * x * x;
+	t = 5 * x * x;
 	r = p - t;
 	return r;
 	//return pow(x, 3) - 5*pow(x, 2);
 }
 
 //----------------------------- Многочлен Ньютона -------------------------------------------
-double Mn_New(double *x, double xt, int kol, double *k) {
+double Mn_New(double* x, double xt, int kol, double* k) {
 	double S = k[0], p = 1;
 	for (int i = 1; i < kol; i++)
 	{
@@ -88,9 +88,9 @@ double Mn_New(double *x, double xt, int kol, double *k) {
 	return S;
 }
 
-double* coeffs(double *x, double *y, int kol)
+double* coeffs(double* x, double* y, int kol)
 {
-	double *k = new double[kol];
+	double* k = new double[kol];
 	k[0] = y[0];
 	for (int j = 1; j < kol; j++) {
 		for (int i = 0; i < kol - j; i++)
@@ -102,11 +102,11 @@ double* coeffs(double *x, double *y, int kol)
 	return k;
 }
 
-void checkInt(double &number)
+void checkInt(double& number)
 {
 	while (true) {
 		cin >> number;
-		if (number > 0 && cin.get() == '\n' )
+		if (number > 0 && cin.get() == '\n')
 			break;
 		else {
 			cin.clear();
@@ -116,7 +116,7 @@ void checkInt(double &number)
 	}
 }
 
-void checkDouble(double &number) {
+void checkDouble(double& number) {
 	while (true) {
 		cin >> number;
 		if (cin.get() == '\n')

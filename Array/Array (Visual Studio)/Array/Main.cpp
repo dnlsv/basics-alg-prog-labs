@@ -20,7 +20,7 @@ void main()
 		cout << "Введите количество элемментов массива n (n<=10) " << endl;
 		checkNumber(n);
 
-		if (n < 1 || n>10) 
+		if (n < 1 || n>10)
 			cout << "Некорректный ввод" << endl;
 		else {
 			cout << "1 - Random. 0 - Keyboard" << endl;
@@ -61,12 +61,12 @@ void main()
 			}
 
 			for (sum = 0, i = i5 + 1; i < n; ++i) {
-				if (i5 == 0) 
+				if (i5 == 0)
 					sum = 0;
-				else 
+				else
 					sum += a[i];
 			}
-			cout << endl << "Сумма элементов массива после последнего отрицательного = " << sum << endl <<endl;
+			cout << endl << "Сумма элементов массива после последнего отрицательного = " << sum << endl << endl;
 		}
 		cout << "Для продолжения работы программы нажмите 1" << endl;
 		cout << "Для выхода из программы нажмите 0" << endl;
@@ -80,11 +80,11 @@ void main()
 				cout << "Некорректный ввод" << endl;
 			}
 		}
-    } while (kod != 0);
+	} while (kod != 0);
 	//system("pause");
 }
 
-void checkNumber(int &number)
+void checkNumber(int& number)
 {
 	while (true) {
 		cin >> number;

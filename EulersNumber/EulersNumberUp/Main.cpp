@@ -21,7 +21,7 @@ void main()
 		len = strlen(st);
 		sch = 0;
 
-    	for (i = 0; i < len; i++)
+		for (i = 0; i < len; i++)
 		{
 			count = 0;
 			sount = 0;
@@ -65,7 +65,7 @@ void main()
 	} while (kod != 0);
 }
 
-void view(int &h, int count, int sount, int b, char *podst, char *st, int &sch)
+void view(int& h, int count, int sount, int b, char* podst, char* st, int& sch)
 {
 	if (count == 1 && sount == 1) {
 		cout << endl;
@@ -79,22 +79,22 @@ void view(int &h, int count, int sount, int b, char *podst, char *st, int &sch)
 
 }
 
-void inputKod(int &kod)
+void inputKod(int& kod)
 {
-		while (true) {
-			cout << endl << "Для продолжения работы программы нажмите 1" << endl;
-			cout << "Для выхода из программы нажмите 0" << endl;
-			cin >> kod;
-			if (kod == 1 || kod == 0) {
-				if (cin.get() == '\n')
-					break;
-				else {
-					cin.clear();
-					cin.ignore(numeric_limits<streamsize>::max(), '\n');
-					cout << "Error!" << endl;
-				}
-			}
-			else 
+	while (true) {
+		cout << endl << "Для продолжения работы программы нажмите 1" << endl;
+		cout << "Для выхода из программы нажмите 0" << endl;
+		cin >> kod;
+		if (kod == 1 || kod == 0) {
+			if (cin.get() == '\n')
+				break;
+			else {
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
 				cout << "Error!" << endl;
+			}
 		}
+		else
+			cout << "Error!" << endl;
+	}
 }

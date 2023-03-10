@@ -8,22 +8,22 @@ using namespace std;
 
 struct Stack {
 	double info;
-	Stack * next;
+	Stack* next;
 };
 
 Stack* InStack(Stack*, double);
 void View(Stack*);
-void Del_All(Stack **);
-double SrAr(Stack  *);
+void Del_All(Stack**);
+double SrAr(Stack*);
 //Stack* Del(Stack *, int);
 Stack* OutStack(Stack*, double*);
 Stack* AddSr(Stack*, int, double);
-void checkNumber(int &);
+void checkNumber(int&);
 
 void main() {
 	setlocale(LC_ALL, ".UTF8");
 	int i, in, n, kod;
-	Stack *begin = NULL;
+	Stack* begin = NULL;
 	while (true) {
 		cout << endl << "1 - Create." << endl << "2 - Add." << endl << "3 - View." << endl << "4 - Del." << endl << "5 - Task."
 			<< endl << "0 - EXIT." << endl;
@@ -78,15 +78,15 @@ void main() {
 	}
 }
 
-Stack* InStack(Stack  *p, double  in) {
-	Stack *t = new Stack;
+Stack* InStack(Stack* p, double  in) {
+	Stack* t = new Stack;
 	t->info = in;
 	t->next = p;
 	return   t;
 }
 
-void View(Stack *p) {
-	Stack *t = p;
+void View(Stack* p) {
+	Stack* t = p;
 	if (p == NULL) {
 		cout << "Stack Pyst!" << endl;
 		return;
@@ -97,8 +97,8 @@ void View(Stack *p) {
 	}
 }
 
-Stack* OutStack(Stack *p, double *out) {
-	Stack *t = p;
+Stack* OutStack(Stack* p, double* out) {
+	Stack* t = p;
 	*out = p->info;
 	p = p->next;
 	delete t;
@@ -107,8 +107,8 @@ Stack* OutStack(Stack *p, double *out) {
 
 //begin = OutStack ( begin, &out ); 
 
-void  Del_All(Stack  **p) {
-	Stack *t;
+void  Del_All(Stack** p) {
+	Stack* t;
 	while (*p != NULL) {
 		t = *p;
 		*p = (*p)->next;
@@ -116,10 +116,10 @@ void  Del_All(Stack  **p) {
 	}
 }
 
-Stack* AddSr(Stack *b, int n, double Sr)
+Stack* AddSr(Stack* b, int n, double Sr)
 {
 	double  inf, k = 0;
-	Stack  *new_b = NULL;
+	Stack* new_b = NULL;
 	while (b != NULL) {
 		k++;
 		b = OutStack(b, &inf);
@@ -131,7 +131,7 @@ Stack* AddSr(Stack *b, int n, double Sr)
 
 }
 
-double SrAr(Stack *t) {
+double SrAr(Stack* t) {
 	double sum = 0, k = 0, Sr;
 	while (t != NULL) {
 		sum += t->info;
@@ -142,7 +142,7 @@ double SrAr(Stack *t) {
 	return Sr;
 }
 
-void checkNumber(int &number)
+void checkNumber(int& number)
 {
 	while (true) {
 		cin >> number;

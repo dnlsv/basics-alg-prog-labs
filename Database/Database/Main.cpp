@@ -38,8 +38,8 @@ void main()
 {
 	setlocale(LC_ALL, ".UTF8");
 
-	Student temp, *arr;
-	FILE *fst, *ftxt;
+	Student temp, * arr;
+	FILE* fst, * ftxt;
 	int kod;
 	int point;
 	int number = 0;
@@ -50,7 +50,7 @@ void main()
 	int numst;
 	int kk;
 	double pr, sr = 0;
-	FILE *fsp;
+	FILE* fsp;
 	double q, w, e, r;
 	int prom = -1;
 	int m = 0;
@@ -125,11 +125,11 @@ void main()
 				//while (flag) {
 					//if (numst > kol || numst < 1) {
 					//	cout << endl << "Неверное значение! Повторите попытку!" << endl;
-						inputNumber(prom);
-					//}
-					//else
-						//flag = false;
+				inputNumber(prom);
 				//}
+				//else
+					//flag = false;
+			//}
 				cout << endl;
 
 				cout << "Введите:" << endl;
@@ -192,9 +192,9 @@ void main()
 						flag = false;
 				}
 				cout << endl;
-		
+
 				arr[numst - 1] = temp;
-				
+
 				for (int i = 0; i < kol; i++)
 				{
 					for (int j = i; j < kol - 1; j++)
@@ -272,7 +272,7 @@ void main()
 	system("pause");
 }
 
-void Out(Student t, FILE *ftxt)
+void Out(Student t, FILE* ftxt)
 {
 	cout << "N " << t.number << endl;
 	cout << t.surname << " " << t.name << " " << t.patr << endl
@@ -288,7 +288,7 @@ void Out(Student t, FILE *ftxt)
 }
 
 
-void inputNumber(int &prom)
+void inputNumber(int& prom)
 {
 	while (true)
 	{
@@ -301,7 +301,7 @@ void inputNumber(int &prom)
 }
 
 
-void inputDann(Student &temp, int m)
+void inputDann(Student& temp, int m)
 {
 	double q;
 	while (true)

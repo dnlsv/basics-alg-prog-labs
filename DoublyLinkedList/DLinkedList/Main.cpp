@@ -8,22 +8,22 @@ using namespace std;
 
 struct Spis2 {
 	int info;
-	Spis2  *prev, *next;
+	Spis2* prev, * next;
 };
 
-void Create_Spis2(Spis2 **, Spis2 **, int);
-void Add_Spis2(int, Spis2 **, Spis2 **, int);
-void View_Spis2(int, Spis2 *);
-void Del_All(Spis2  **);
-void Delete(Spis2 **, Spis2 **);
-double SrAr(Spis2 *);
-void checkNumber(int &, int);
+void Create_Spis2(Spis2**, Spis2**, int);
+void Add_Spis2(int, Spis2**, Spis2**, int);
+void View_Spis2(int, Spis2*);
+void Del_All(Spis2**);
+void Delete(Spis2**, Spis2**);
+double SrAr(Spis2*);
+void checkNumber(int&, int);
 
 int main() {
 	setlocale(LC_ALL, ".UTF8");
 	int in, kod, kod1, count, si = 0;
 	char Str[2][10] = { "Begin ", "End " };
-	Spis2  *begin = 0, *end = 0, *t;
+	Spis2* begin = 0, * end = 0, * t;
 	cout << "-------Spis-------" << endl;
 	while (true) {
 		cout << endl << "1 - Create." << endl << "2 - Add." << endl << "3 - View." << endl << "4 - Del." << endl << "5 - Task."
@@ -101,15 +101,15 @@ int main() {
 	}
 }
 
-void Create_Spis2(Spis2 **b, Spis2 **e, int in) {
-	Spis2 *t = new Spis2;
+void Create_Spis2(Spis2** b, Spis2** e, int in) {
+	Spis2* t = new Spis2;
 	t->info = in;
 	t->next = t->prev = NULL;
 	*b = *e = t;
 }
 
-void Add_Spis2(int kod, Spis2 **b, Spis2 **e, int in) {
-	Spis2 *t = new Spis2;
+void Add_Spis2(int kod, Spis2** b, Spis2** e, int in) {
+	Spis2* t = new Spis2;
 	t->info = in;
 	if (kod == 0) {
 		t->prev = NULL;
@@ -125,16 +125,16 @@ void Add_Spis2(int kod, Spis2 **b, Spis2 **e, int in) {
 	}
 }
 
-void View_Spis2(int kod, Spis2 *t) {
+void View_Spis2(int kod, Spis2* t) {
 	while (t != NULL) {
-		cout << t->info << endl;           
+		cout << t->info << endl;
 		if (kod == 0) t = t->next;
 		else  t = t->prev;
 	}
 }
 
-void  Del_All(Spis2  **p) {
-	Spis2 *t;
+void  Del_All(Spis2** p) {
+	Spis2* t;
 	while (*p != NULL) {
 		t = *p;
 		*p = (*p)->next;
@@ -142,8 +142,8 @@ void  Del_All(Spis2  **p) {
 	}
 }
 
-void Delete(Spis2 **begin, Spis2 **end) {
-	Spis2 *t = *begin, *key;
+void Delete(Spis2** begin, Spis2** end) {
+	Spis2* t = *begin, * key;
 	double Sr;
 	int k = 0;
 	Sr = SrAr(*begin);
@@ -161,7 +161,7 @@ void Delete(Spis2 **begin, Spis2 **end) {
 				if (t == *end) {
 					*end = (*end)->prev;
 					delete t;
-					(*end) -> next = NULL;  
+					(*end)->next = NULL;
 					t = *end;
 				}
 				else {
@@ -179,7 +179,7 @@ void Delete(Spis2 **begin, Spis2 **end) {
 	cout << "Less Average: " << k << endl;
 }
 
-double SrAr(Spis2 *t) {
+double SrAr(Spis2* t) {
 	double sum = 0, k = 0, Sr;
 	while (t != NULL) {
 		sum += t->info;
@@ -190,7 +190,7 @@ double SrAr(Spis2 *t) {
 	return Sr;
 }
 
-void checkNumber(int &number, int count)
+void checkNumber(int& number, int count)
 {
 	while (true) {
 		cin >> number;

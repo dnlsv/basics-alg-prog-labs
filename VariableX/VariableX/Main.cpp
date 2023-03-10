@@ -2,8 +2,8 @@
 
 using namespace std;
 
-void inputNum(int &num);
-void inputData(double &a, double &b, double &h, int &n);
+void inputNum(int& num);
+void inputData(double& a, double& b, double& h, int& n);
 bool isNumberNumeric();
 
 void main()
@@ -13,7 +13,7 @@ void main()
 	int n, k;
 	int kod = 0;
 	do {
-		inputData(a, b, h, n);	
+		inputData(a, b, h, n);
 
 		for (x = a; x <= b + h / 2; x += h) {
 			r = sum = 1;
@@ -25,17 +25,17 @@ void main()
 			p = fabs(sum - y);
 			printf("\n x= %8.5lf   sum= %8.5lf   y= %8.5lf  p= %8.5lf\n ", x, sum, y, p);
 		}
-		inputNum(kod);	
+		inputNum(kod);
 
-      } while (kod != 0);				
+	} while (kod != 0);
 	//system("pause");
 }
 
 //Защита
 
-void inputData(double &a, double &b, double &h, int &n)
+void inputData(double& a, double& b, double& h, int& n)
 {
-    while (true)
+	while (true)
 	{
 		cout << "Введите a, b, h, n:" << endl;
 		cin >> a >> b >> h >> n;
@@ -46,7 +46,7 @@ void inputData(double &a, double &b, double &h, int &n)
 	}
 }
 
-void inputNum(int &num)
+void inputNum(int& num)
 {
 	while (true)
 	{

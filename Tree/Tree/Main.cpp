@@ -6,31 +6,31 @@ using namespace std;
 struct  Tree {
 	int   info;
 	string str;
-	Tree  *left, *right;
+	Tree* left, * right;
 };
 
-Tree* Create(Tree *);
+Tree* Create(Tree*);
 Tree* List(int, string);
-void Add_List(Tree *, int, string, int &);
-void View(Tree *, int);
-Tree* Del(Tree *, int);
-void Del_All(Tree **);
-Tree* P_Key(Tree *);
-void Make_Blns(Tree **, int, int, int *, string *);
-void Balans(Tree *, int);
-void Rec(Tree *, int *, int&);
-void Res(Tree *, string *, int &);
-void P_Rec(Tree *, Tree **, int, int&);
-void preOrder(Tree *, int);
-void postOrder(Tree *, int);
-void inOrder(Tree *, int);
-void Task(Tree *, int &);
-void checkNumber(int &);
-void Check(Tree *, int, int &);
+void Add_List(Tree*, int, string, int&);
+void View(Tree*, int);
+Tree* Del(Tree*, int);
+void Del_All(Tree**);
+Tree* P_Key(Tree*);
+void Make_Blns(Tree**, int, int, int*, string*);
+void Balans(Tree*, int);
+void Rec(Tree*, int*, int&);
+void Res(Tree*, string*, int&);
+void P_Rec(Tree*, Tree**, int, int&);
+void preOrder(Tree*, int);
+void postOrder(Tree*, int);
+void inOrder(Tree*, int);
+void Task(Tree*, int&);
+void checkNumber(int&);
+void Check(Tree*, int, int&);
 
 int main() {
 	setlocale(LC_ALL, ".UTF8");
-	Tree *root = 0, *p_key;
+	Tree* root = 0, * p_key;
 	int in, kod, key, k = 0, point, count, flag;
 	string st;
 	cout << "\tTree";
@@ -50,14 +50,14 @@ int main() {
 				if (kod == 0)
 					break;
 				if (kod != 1)
-					cout << endl << "Error!" << endl << "Сначала необходимо создать дерево" << endl; 
+					cout << endl << "Error!" << endl << "Сначала необходимо создать дерево" << endl;
 			}
 		}
 		cout << endl;
 		switch (kod) {
 		case 1:
 			k++;
-			root = Create(root);			
+			root = Create(root);
 			break;
 		case 2:
 			cout << "Input info" << endl;
@@ -108,7 +108,7 @@ int main() {
 					cout << endl << "Error!" << endl;
 			}
 			switch (point) {
-			case 1 : 
+			case 1:
 				cout << endl << "\tПрямой обход" << endl;
 				preOrder(root, 0);
 				break;
@@ -146,14 +146,14 @@ int main() {
 
 Tree* List(int i, string s)
 {
-	Tree *t = new Tree;
+	Tree* t = new Tree;
 	t->info = i; // 
 	t->str = s;
 	t->left = t->right = NULL;
 	return t;
 }
 
-Tree* Create(Tree *root) {
+Tree* Create(Tree* root) {
 	int i;
 	string s;
 	if (!root) { // Если дерево не создано
@@ -169,9 +169,9 @@ Tree* Create(Tree *root) {
 	return root;
 }
 
-void Add_List(Tree *root, int key, string st, int &k)
+void Add_List(Tree* root, int key, string st, int& k)
 {
-	Tree *prev = 0, *t;
+	Tree* prev = 0, * t;
 	bool find = true; // int find = 1;
 	t = root;
 	while (t && find) {
@@ -196,7 +196,7 @@ void Add_List(Tree *root, int key, string st, int &k)
 	}
 }
 
-void View(Tree *t, int level)
+void View(Tree* t, int level)
 {
 	if (t) {
 		View(t->right, level + 1); // Вывод узлов правого поддерева
@@ -207,8 +207,8 @@ void View(Tree *t, int level)
 	}
 }
 
-Tree* P_Key(Tree *root) {
-	Tree *p = root, *t = NULL;
+Tree* P_Key(Tree* root) {
+	Tree* p = root, * t = NULL;
 	int key, flag;
 	while (1) {
 		flag = 0;
@@ -223,7 +223,7 @@ Tree* P_Key(Tree *root) {
 	return t;
 }
 
-void P_Rec(Tree *p, Tree **t, int key, int& flag)
+void P_Rec(Tree* p, Tree** t, int key, int& flag)
 {
 	if (p) {
 		P_Rec(p->right, t, key, flag);
@@ -235,8 +235,8 @@ void P_Rec(Tree *p, Tree **t, int key, int& flag)
 	}
 }
 
-Tree* Del(Tree *root, int key) {
-	Tree *Del, *Prev_Del, *R, *Prev_R;
+Tree* Del(Tree* root, int key) {
+	Tree* Del, * Prev_Del, * R, * Prev_R;
 	/*
 	Del, Prev_Del – удаляемый элемент и его предыдущий (родитель); R, Prev_R – элемент, на который заменяется удаленный, и его родитель; */
 	Del = root;
@@ -286,17 +286,17 @@ Tree* Del(Tree *root, int key) {
 	return root;
 }
 
-void Balans(Tree *t, int k)
+void Balans(Tree* t, int k)
 {
 	//Tree *t = root;
 	int j, l = 0, d = 0, tmp;
 	string tmr;
-	int *a = new int[k];
-	string *s = new string[k];
+	int* a = new int[k];
+	string* s = new string[k];
 	Rec(t, a, l);
 	for (int i = 0; i < l - 1; i++)
 		for (j = i + 1; j < l; j++)
-			if (a[j] < a[i]) {              
+			if (a[j] < a[i]) {
 				tmp = a[j];
 				a[j] = a[i];
 				a[i] = tmp;
@@ -315,7 +315,7 @@ void Balans(Tree *t, int k)
 	View(t, 0);
 }
 
-void Rec(Tree *t, int *a,  int &l){
+void Rec(Tree* t, int* a, int& l) {
 	if (t) {
 		Rec(t->right, a, l);
 		a[l++] = t->info;
@@ -323,7 +323,7 @@ void Rec(Tree *t, int *a,  int &l){
 	}
 }
 
-void Res(Tree *t, string *s, int &d) {
+void Res(Tree* t, string* s, int& d) {
 	if (t) {
 		Res(t->right, s, d);
 		s[d++] = t->str;
@@ -331,7 +331,7 @@ void Res(Tree *t, string *s, int &d) {
 	}
 }
 
-void Make_Blns(Tree **p, int n, int k, int *a, string *s)
+void Make_Blns(Tree** p, int n, int k, int* a, string* s)
 
 {
 	if (n == k) {
@@ -348,26 +348,26 @@ void Make_Blns(Tree **p, int n, int k, int *a, string *s)
 	}
 }
 
-void Del_All(Tree **t) {
+void Del_All(Tree** t) {
 	if (*t) {
 		Del_All(&(*t)->left);
 		Del_All(&(*t)->right);
-		delete *t;
+		delete* t;
 	}
 }
 
-void preOrder(Tree *t, int level)
+void preOrder(Tree* t, int level)
 {
 	if (t) {
 		for (int i = 0; i < level; i++)
 			cout << " ";
 		cout << t->info << "" << t->str << endl;
 		preOrder(t->right, level + 1);
-		preOrder(t->left, level + 1); 
+		preOrder(t->left, level + 1);
 	}
 }
 
-void postOrder(Tree *t, int level)
+void postOrder(Tree* t, int level)
 {
 	if (t) {
 		postOrder(t->right, level + 1);
@@ -378,7 +378,7 @@ void postOrder(Tree *t, int level)
 	}
 }
 
-void inOrder(Tree *t, int level)
+void inOrder(Tree* t, int level)
 {
 	if (t) {
 		inOrder(t->right, level + 1);
@@ -389,7 +389,7 @@ void inOrder(Tree *t, int level)
 	}
 }
 
-void Task(Tree *t, int &count) {
+void Task(Tree* t, int& count) {
 	if (t) {
 		Task(t->right, count);
 		if (t->right && t->left)
@@ -398,7 +398,7 @@ void Task(Tree *t, int &count) {
 	}
 }
 
-void checkNumber(int &number)
+void checkNumber(int& number)
 {
 	while (true) {
 		cin >> number;
@@ -412,7 +412,7 @@ void checkNumber(int &number)
 	}
 }
 
-void Check(Tree *t, int p, int &flag)
+void Check(Tree* t, int p, int& flag)
 {
 	if (t) {
 		Check(t->right, p, flag);
@@ -439,112 +439,112 @@ void Check(Tree *t, int p, int &flag)
 	}
 	return 0;*/
 
-/*a[l++] = t->info;
-	if (t->left)  B(t->left, a, l);
-	if (t->right) B(t->right, a, l);*/
+	/*a[l++] = t->info;
+		if (t->left)  B(t->left, a, l);
+		if (t->right) B(t->right, a, l);*/
 
-/*
-Tree *p = root;
-	int key;
-	cin >> key;
-	if (p->info < key){
-		while (p->left != NULL) {
-			if (p->info == key)
-				break;
-			p = p->left;
+		/*
+		Tree *p = root;
+			int key;
+			cin >> key;
+			if (p->info < key){
+				while (p->left != NULL) {
+					if (p->info == key)
+						break;
+					p = p->left;
+				}
+			}
+			else {
+				while (p->right != NULL) {
+					if (p->info == key)
+						break;
+					p = p->right;
+				}
+			}
+			return p;
+		*/
+
+
+		/*//---------- Добавление элементов -----------
+		int find;
+		Tree *Prev = 0, *t; // Prev – родитель текущего элемента
+		while (1) { //  while (true)
+			cout << "Input Info:" << endl;
+			cout << "Key - ";
+			cin >> i;
+			cout << "Text - ";
+			cin >> s;
+			if (i < 0) break; // Признак выхода – отрицательное число
+			t = root; // Текущий указатель установили на корень
+			find = 0; // Признак поиска
+			while (t && !find) {
+				Prev = t;
+				if (i == t->info)
+					find = 1;
+				// Ключи должны быть уникальны
+				else
+					if (i < t->info) t = t->left;
+					else   t = t->right;
+			}
+			// Если нашли место с адресом Prev
+			if (!find) { //  if (find == 0)
+				t = List(i, s); // Создаем новый узел, являющийся листом
+				if (i < Prev->info) // и присоединяем его, либо
+					Prev->left = t; // на левую ветвь,
+				else    Prev->right = t; // либо на правую ветвь
+			}
+			break;
+		}	 		// Конец цикла while ( 1 )
+		*/
+
+		/*
+		struct  Tree {
+			int   info;
+			Tree  *left, *right;
+		};
+
+		Tree* List(int inf) {
+			Tree *t = new Tree;		// Захват памяти
+			t->info = inf;			// Формирование информационной части
+			t->left = t->right = NULL;	// Формирование адресных частей
+			return t;				// Возврат созданного указателя
 		}
-	}
-	else {
-		while (p->right != NULL) {
-			if (p->info == key)
-				break;
-			p = p->right;
+
+		//1. Первоначально(root = NULL) создаем корень(первый лист дерева) :
+			//root = List(StrToInt(Edit1->Text));
+		//2. Иначе(root != NULL) добавляем информацию(key) в нужное место :
+
+		void Add_List(Tree *root, int key) {
+			Tree *prev, *t;			// prev – указатель предка нового ли-ста
+			bool find = true;
+			t = root;
+			while (t && find) {
+				prev = t;
+				if (key == t->info) {
+					find = false;	 	// Ключ должен быть уникален
+					cout << "Dublucate Key!" << endl;
+				}
+				else
+					if (key < t->info) t = t->left;
+					else   t = t->right;
+			}
+			if (find) {					// Нашли нужное место
+				t = List(key);			// Создаем новый лист
+				if (key < prev->info) prev->left = t;
+				else    prev->right = t;
+			}
 		}
-	}
-	return p;
-*/
 
-
-/*//---------- Добавление элементов -----------
-int find;
-Tree *Prev = 0, *t; // Prev – родитель текущего элемента
-while (1) { //  while (true)
-	cout << "Input Info:" << endl;
-	cout << "Key - ";
-	cin >> i;
-	cout << "Text - ";
-	cin >> s;
-	if (i < 0) break; // Признак выхода – отрицательное число
-	t = root; // Текущий указатель установили на корень
-	find = 0; // Признак поиска
-	while (t && !find) {
-		Prev = t;
-		if (i == t->info)
-			find = 1;
-		// Ключи должны быть уникальны
-		else
-			if (i < t->info) t = t->left;
-			else   t = t->right;
-	}
-	// Если нашли место с адресом Prev
-	if (!find) { //  if (find == 0)
-		t = List(i, s); // Создаем новый узел, являющийся листом
-		if (i < Prev->info) // и присоединяем его, либо
-			Prev->left = t; // на левую ветвь,
-		else    Prev->right = t; // либо на правую ветвь
-	}
-	break;
-}	 		// Конец цикла while ( 1 )
-*/
-
-/*
-struct  Tree {
-	int   info;
-	Tree  *left, *right;
-};
-
-Tree* List(int inf) {
-	Tree *t = new Tree;		// Захват памяти
-	t->info = inf;			// Формирование информационной части
-	t->left = t->right = NULL;	// Формирование адресных частей
-	return t;				// Возврат созданного указателя
-}
-
-//1. Первоначально(root = NULL) создаем корень(первый лист дерева) :
-	//root = List(StrToInt(Edit1->Text));
-//2. Иначе(root != NULL) добавляем информацию(key) в нужное место :
-
-void Add_List(Tree *root, int key) {
-	Tree *prev, *t;			// prev – указатель предка нового ли-ста
-	bool find = true;
-	t = root;
-	while (t && find) {
-		prev = t;
-		if (key == t->info) {
-			find = false;	 	// Ключ должен быть уникален
-			cout << "Dublucate Key!" << endl;
+		//Функция просмотра элементов дерева
+		void View_Tree(Tree *p, int level) {
+			string str;
+			if (p) {
+				View_Tree(p->right, level + 1);		// Правое поддерево
+				for (int i = 0; i < level; i++)
+					str = str + "    ";
+				//Form1->Memo1->Lines->Add(str + IntToStr(p->info));
+				View_Tree(p->left, level + 1); 			// Левое поддерево
+			}
 		}
-		else
-			if (key < t->info) t = t->left;
-			else   t = t->right;
-	}
-	if (find) {					// Нашли нужное место
-		t = List(key);			// Создаем новый лист
-		if (key < prev->info) prev->left = t;
-		else    prev->right = t;
-	}
-}
-
-//Функция просмотра элементов дерева
-void View_Tree(Tree *p, int level) {
-	string str;
-	if (p) {
-		View_Tree(p->right, level + 1);		// Правое поддерево
-		for (int i = 0; i < level; i++)
-			str = str + "    ";
-		//Form1->Memo1->Lines->Add(str + IntToStr(p->info));
-		View_Tree(p->left, level + 1); 			// Левое поддерево
-	}
-}
-*/
+		*/
 

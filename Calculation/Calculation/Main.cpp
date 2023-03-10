@@ -18,11 +18,11 @@ int main()
 	int kod;
 	double a, b, h;
 	int n;
-	
+
 	do {
 		inputData(a, b, h, n);
 
-	    Out_Rez(a, b, h, n);
+		Out_Rez(a, b, h, n);
 		cout << endl;
 
 		inputNum(kod);
@@ -55,15 +55,15 @@ double calculateModyl(double x, int n)
 
 void Out_Rez(double a, double b, double h, int n)
 {
-	for (double x = a; x <= b + h / 2; x += h) 
-		printf("\n x= %8.5lf   sum= %8.5lf   y= %8.5lf  p= %8.5lf\n ", x, calculateFunction(x, n) , calculateSum(x, n), calculateModyl(x, n));
+	for (double x = a; x <= b + h / 2; x += h)
+		printf("\n x= %8.5lf   sum= %8.5lf   y= %8.5lf  p= %8.5lf\n ", x, calculateFunction(x, n), calculateSum(x, n), calculateModyl(x, n));
 }
 
 //ЗАЩИТА
 
-void inputData(double &a, double &b, double &h, int &n)
+void inputData(double& a, double& b, double& h, int& n)
 {
-    while (true)
+	while (true)
 	{
 		cout << "Введите a, b, h, n:" << endl;
 		cin >> a >> b >> h >> n;
@@ -74,7 +74,7 @@ void inputData(double &a, double &b, double &h, int &n)
 	}
 }
 
-void inputNum(int &num)
+void inputNum(int& num)
 {
 	while (true)
 	{

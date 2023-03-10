@@ -24,7 +24,7 @@ void main()
 		char podst[N];
 
 		for (i = 1; i <= len; i++) {
-			
+
 			if (st[i] == '.') {
 				non = 1;
 				a = 0;
@@ -97,7 +97,7 @@ void main()
 		//Когда точки нет
 
 		for (i = 1; i <= len; i++) {
-			
+
 			if (st[i] == 'E' || st[i] == 'e') {
 				non = 1;
 				a = 0;
@@ -186,5 +186,4 @@ void main()
 
 	} while (kod != 0);
 
-	
 }

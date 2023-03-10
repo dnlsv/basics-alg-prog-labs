@@ -7,8 +7,8 @@ using namespace std;
 double f(double);
 double pr(double);
 double Metod(double, double, double, int&);
-void checkIn(double &);
-void checkSign(double &);
+void checkIn(double&);
+void checkSign(double&);
 
 double f(double x)
 {
@@ -20,7 +20,7 @@ double pr(double x)
 	return 3 * pow(x, 2) - 10 * x;           //Производная
 }
 
-double Metod(double x, double x0, double e, int &iter) {
+double Metod(double x, double x0, double e, int& iter) {
 	iter = 0;
 	do
 	{
@@ -52,7 +52,7 @@ int main()
 	checkSign(e);
 
 	for (x = a; x <= b; x += h) {
-		if (f(x)*f(x + h) < 0) {
+		if (f(x) * f(x + h) < 0) {
 			count++;
 			z = Metod(x, x + h, e, iter);
 			cout << endl << "F(x) = " << f(z) << endl;
@@ -67,7 +67,7 @@ int main()
 	return 0;
 }
 
-void checkIn(double &number)
+void checkIn(double& number)
 {
 	while (true) {
 		cin >> number;
@@ -81,7 +81,7 @@ void checkIn(double &number)
 	}
 }
 
-void checkSign(double &number) {
+void checkSign(double& number) {
 	while (1) {
 		checkIn(number);
 		if (number > 0)

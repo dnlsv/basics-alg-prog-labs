@@ -15,8 +15,8 @@ struct Student
 
 using  namespace std; //Явное указание пространства имён
 
-Student *arr;
-FILE *fst, *ftxt;
+Student* arr;
+FILE* fst, * ftxt;
 int siz = sizeof(Student); //возвращающий длину в байтах переменной или типа, помещенных в скобки.
 
 const char WAYDAT[] = "../Out/Data.dat";
@@ -38,11 +38,11 @@ void main()
 	setlocale(LC_ALL, ".UTF8"); //задает локаль
 
 	Student newst;
-	FILE *fspis;
+	FILE* fspis;
 	int kod, point, kol, i, numst, dan, count, g = 0, k = 0; /*k - Для отслеживания, создана ли хоть одна запись  g - создан ли файл*/
 	double fiz, mat, inf, him, sr, pr;
 	long len;
-	
+
 
 	//fopen_s(&ftxt, WAYTXT, "w");
 	while (1)
@@ -98,7 +98,7 @@ void main()
 				if (k != 0) {
 					begin(numst, kol);
 
-					printf("\nКакие данные Вы хотите изменить:\n1 - Фамилию и инициалы\n2 - Год рождения\n3 - Номер группы\n4 - Оценки за семестр\n");					
+					printf("\nКакие данные Вы хотите изменить:\n1 - Фамилию и инициалы\n2 - Год рождения\n3 - Номер группы\n4 - Оценки за семестр\n");
 					while (1)
 					{
 						inputNumber(dan);
@@ -158,7 +158,7 @@ void main()
 					end(kol);
 				}
 				else
-					puts("Некорректный ввод! Повторите попытку!\n");		
+					puts("Некорректный ввод! Повторите попытку!\n");
 				break;
 			case 0: //Вернуться
 				break;
@@ -184,7 +184,7 @@ void main()
 					return;
 				}
 				arr = new Student[kol];
-				for (i = 0; i < kol; i++) 
+				for (i = 0; i < kol; i++)
 					fread(arr, siz, 1, fst);
 				fclose(fst);
 
@@ -238,10 +238,10 @@ void view(Student t)
 	fclose(fst);
 }
 
-void begin(int &numst, int &kol)
+void begin(int& numst, int& kol)
 {
 	long len;
-	view(temp);	
+	view(temp);
 	fopen_s(&fst, WAYDAT, "rb");
 	check(fst);
 	len = _filelength(_fileno(fst)); //Возвращает длину файла в байтах. //Возвращает дескриптор файла у казанного потока
@@ -286,7 +286,7 @@ void end(int kol)
 	delete[]arr;
 }
 
-void Out(Student t, FILE *ftxt)
+void Out(Student t, FILE* ftxt)
 {
 	printf_s("%s ", t.FIO);
 	printf_s("\nГод рождения - %d\nГруппа - %d", t.year, t.numgr);
@@ -301,7 +301,7 @@ void Out(Student t, FILE *ftxt)
 	fprintf(ftxt, "\n\n");
 }
 
-void inputNumber(int &num)
+void inputNumber(int& num)
 {
 	while (true)
 	{
@@ -313,7 +313,7 @@ void inputNumber(int &num)
 	}
 }
 
-void inputData(int &data, int count)
+void inputData(int& data, int count)
 {
 	while (true)
 	{
@@ -357,7 +357,7 @@ bool isNumberNumeric()
 	}
 }
 
-void check(FILE *f)
+void check(FILE* f)
 {
 	if (f == NULL) {
 		puts("\nError!");

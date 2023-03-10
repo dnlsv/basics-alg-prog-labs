@@ -9,16 +9,16 @@ using namespace std;
 
 struct Queue {
 	char str;
-	Queue *next;
+	Queue* next;
 	double value;
 };
 
 int  Prior(char);
 Queue* InS(Queue*, char);
 Queue* OutS(Queue*, char*);
-double Pop(Queue **);
-void Push(Queue **, double);
-void checkNumber(double &);
+double Pop(Queue**);
+void Push(Queue**, double);
+void checkNumber(double&);
 void checkIn(char In[]);
 
 int main()
@@ -26,7 +26,7 @@ int main()
 	setlocale(LC_ALL, ".UTF8");
 	double kod;
 	do {
-		Queue *t, *Op = NULL;
+		Queue* t, * Op = NULL;
 		char a, In[81], Out[81];
 		int   k = 0, l = 0;
 		double number = 0, vl = 0;
@@ -35,7 +35,7 @@ int main()
 		checkIn(In);
 
 		while (In[k] != '\0') {
-			if (In[k] >= 'A'&&In[k] <= 'Z' || In[k] >= 'a'&&In[k] <= 'z')
+			if (In[k] >= 'A' && In[k] <= 'Z' || In[k] >= 'a' && In[k] <= 'z')
 				Out[l++] = In[k];
 			if (In[k] == '(')
 				Op = InS(Op, In[k]);
@@ -67,7 +67,7 @@ int main()
 
 		for (int i = 0; Out[i] != '\0'; i++)
 		{
-			if (Out[i] >= 'A'&&Out[i] <= 'Z' || Out[i] >= 'a'&&Out[i] <= 'z')
+			if (Out[i] >= 'A' && Out[i] <= 'Z' || Out[i] >= 'a' && Out[i] <= 'z')
 			{
 				cout << "Введите " << Out[i] << ": ";
 				checkNumber(number);
@@ -112,41 +112,41 @@ int  Prior(char a) {
 	return 0;
 }
 
-Queue*  InS(Queue *p, char s)
+Queue* InS(Queue* p, char s)
 {
-	Queue *t = new Queue;
+	Queue* t = new Queue;
 	t->str = s;
 	t->next = p;
 	return t;
 }
 
-Queue*  OutS(Queue *p, char *s)
+Queue* OutS(Queue* p, char* s)
 {
-	Queue *t = p;
+	Queue* t = p;
 	*s = p->str;
 	p = p->next;
 	delete t;
 	return p;
 }
 
-void Push(Queue **Op, double n)
+void Push(Queue** Op, double n)
 {
-	Queue *t = new Queue;
+	Queue* t = new Queue;
 	t->next = *Op;
 	t->value = n;
 	*Op = t;
 }
 
-double Pop(Queue **Op)
+double Pop(Queue** Op)
 {
 	double number = (*Op)->value;
-	Queue *bufer = *Op;
+	Queue* bufer = *Op;
 	*Op = (*Op)->next;
 	delete bufer;
 	return number;
 }
 
-void checkNumber(double &number)
+void checkNumber(double& number)
 {
 	while (true) {
 		cin >> number;
@@ -177,12 +177,12 @@ void checkIn(char In[])
 				sk--;
 			if (In[k] == '+' || In[k] == '-' || In[k] == '*' || In[k] == '/') {
 				j = k + 1;
-				if (In[j] >= 'A'&&In[j] <= 'Z' || In[j] >= 'a'&&In[j] <= 'z' || In[j] == '(')
+				if (In[j] >= 'A' && In[j] <= 'Z' || In[j] >= 'a' && In[j] <= 'z' || In[j] == '(')
 					cout << "";
 				else
 					count = 1;
 			}
-			if (In[k] >= 'A'&&In[k] <= 'Z' || In[k] >= 'a'&&In[k] <= 'z') {
+			if (In[k] >= 'A' && In[k] <= 'Z' || In[k] >= 'a' && In[k] <= 'z') {
 				j = k + 1;
 				if (In[j] == '+' || In[j] == '-' || In[j] == '*' || In[j] == '/' || In[j] == ')' || In[j] == '\0')
 					cout << "";
@@ -190,7 +190,7 @@ void checkIn(char In[])
 					count = 1;
 			}
 			if (In[k] != '+' && In[k] != '-' && In[k] != '*' && In[k] != '/' && In[k] != '(' && In[k] != ')') {
-				if (In[k] >= 'A'&&In[k] <= 'Z' || In[k] >= 'a'&&In[k] <= 'z')
+				if (In[k] >= 'A' && In[k] <= 'Z' || In[k] >= 'a' && In[k] <= 'z')
 					cout << "";
 				else
 					count = 1;

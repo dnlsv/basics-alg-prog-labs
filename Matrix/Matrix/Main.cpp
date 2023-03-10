@@ -10,32 +10,32 @@ void checkNumber(int&);
 void main()
 {
 	setlocale(LC_ALL, ".UTF8");
-	int x, y, **a, n, m, i, j, **s, sum, *pr, kod;
-	
+	int x, y, ** a, n, m, i, j, ** s, sum, * pr, kod;
+
 	do {
 		cout << "Введите диапозон доппустимых элементов массива:" << endl;
 		cout << "От "; checkNumber(x);
 		cout << "До "; checkNumber(y);
 		cout << "[" << x << "," << y << "]" << endl << endl;
 
-		if (y < x) 
+		if (y < x)
 			cout << "Error!" << endl;
 		else {
 			cout << "Введите количество строк, n = ";
 			checkNumber(n);
 			cout << "Введите количество стобцов, m = ";
 			checkNumber(m);
-		
+
 			cout << endl;
-			if (n <= 0 || m <= 0) 
+			if (n <= 0 || m <= 0)
 				cout << "Error!" << endl;
 			else {
-				a = new int*[n];
+				a = new int* [n];
 				for (i = 0; i < n; i++) {
 					a[i] = new int[m];
 				}
 
-				s = new int*[n];
+				s = new int* [n];
 				for (i = 0; i < n; i++) {
 					s[i] = new int[m];
 				}
@@ -76,16 +76,16 @@ void main()
 				cout << " Отсортированная матрица:" << endl;
 				//cout << endl;
 				for (i = 0; i < n; i++) {
-					for (j = 0; j < m; j++) 
+					for (j = 0; j < m; j++)
 						cout << setw(5) << a[i][j];
 					cout << endl;
 				}
 
-				for (i = 0; i < n; i++) 
+				for (i = 0; i < n; i++)
 					delete[]s[i];
 				delete[]s;
 
-				for (i = 0; i < n; i++) 
+				for (i = 0; i < n; i++)
 					delete[]a[i];
 				delete[]a;
 				cout << endl;
@@ -97,18 +97,18 @@ void main()
 			cout << "Для продолжения работы программы нажмите 1" << endl;
 			cout << "Для выхода из программы нажмите 0" << endl;
 			checkNumber(kod);
-			if (kod == 1 || kod == 0) 
+			if (kod == 1 || kod == 0)
 				flag = false;
 			else {
 				flag = true;
 				cout << "Error!" << endl;
 			}
-		}	
+		}
 	} while (kod != 0);
 	//system("pause");
 }
 
-void checkNumber(int &number)
+void checkNumber(int& number)
 {
 	while (true) {
 		cin >> number;

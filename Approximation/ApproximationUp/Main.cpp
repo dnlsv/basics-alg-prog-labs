@@ -5,15 +5,15 @@
 
 using namespace std;
 
-double Mn_New(double *, double, int, double *);
-double* coeffs(double *, double *, int);
+double Mn_New(double*, double, int, double*);
+double* coeffs(double*, double*, int);
 double fun(double);
-void checkInt(int &);
-void checkDouble(double &);
+void checkInt(int&);
+void checkDouble(double&);
 
 int main() {
 	setlocale(LC_ALL, ".UTF8");
-	double x, h, h1, a, b, *mas_x, *mas_y_t, *mas_y, *d;
+	double x, h, h1, a, b, * mas_x, * mas_y_t, * mas_y, * d;
 	int i, n, m;
 
 	cout << "Введите a" << endl;
@@ -72,7 +72,7 @@ double fun(double x) {
 }
 
 //----------------------------- Многочлен Ньютона -------------------------------------------
-double Mn_New(double *x, double xt, int kol, double *k) {
+double Mn_New(double* x, double xt, int kol, double* k) {
 	double S = k[0], p = 1;
 	for (int i = 1; i < kol; i++)
 	{
@@ -82,9 +82,9 @@ double Mn_New(double *x, double xt, int kol, double *k) {
 	return S;
 }
 
-double* coeffs(double *x, double *y, int kol)
+double* coeffs(double* x, double* y, int kol)
 {
-	double *k = new double[kol];
+	double* k = new double[kol];
 	k[0] = y[0];
 	for (int j = 1; j < kol; j++) {
 		for (int i = 0; i < kol - j; i++)
@@ -96,7 +96,7 @@ double* coeffs(double *x, double *y, int kol)
 	return k;
 }
 
-void checkInt(int &number)
+void checkInt(int& number)
 {
 	while (true) {
 		cin >> number;
@@ -110,7 +110,7 @@ void checkInt(int &number)
 	}
 }
 
-void checkDouble(double &number) {
+void checkDouble(double& number) {
 	while (true) {
 		cin >> number;
 		if (cin.get() == '\n')
@@ -122,4 +122,3 @@ void checkDouble(double &number) {
 		}
 	}
 }
-

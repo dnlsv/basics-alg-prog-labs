@@ -7,7 +7,7 @@ double FSR(double, double, int);
 double FTR(double, double, int);
 double Metod(double, double, double);
 double fun(double);
-void checkIn(double &);
+void checkIn(double&);
 
 int main() {
 	setlocale(LC_ALL, ".UTF8");
@@ -25,12 +25,12 @@ int main() {
 	cout << "Введите exp" << endl;
 	while (1) {
 		checkIn(eps);
-		if (eps > 0) 
+		if (eps > 0)
 			break;
 		else
 			cout << "Error!" << endl;
 	}
-	
+
 	Int = Metod(a, b, eps);
 
 	cout << "Значение интеграла = " << Int << endl;
@@ -81,10 +81,10 @@ double Metod(double a, double b, double eps) {
 
 //------------------------------ Подынтегральная функция f(x) ------------------------------
 double fun(double x) {
-	return pow(x, 3) - 5 * x*x;   	
+	return pow(x, 3) - 5 * x * x;
 }
 
-void checkIn(double &number)
+void checkIn(double& number)
 {
 	while (true) {
 		cin >> number;

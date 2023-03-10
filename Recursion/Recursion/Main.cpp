@@ -32,7 +32,7 @@ int max(int* arr, int n) {
 	return max(max(arr, n / 2), max(arr + n / 2, n - n / 2));
 }
 
-int maxMas(int *arr, int n) {
+int maxMas(int* arr, int n) {
 	int max = arr[0];
 	for (int i = 1; i < n; i++) {
 		if (arr[i] > max) {
@@ -42,7 +42,7 @@ int maxMas(int *arr, int n) {
 	return max;
 }
 
-void checkNumber(int &number, int count)
+void checkNumber(int& number, int count)
 {
 	while (true) {
 		cin >> number;
@@ -58,7 +58,7 @@ void checkNumber(int &number, int count)
 	}
 }
 
-void checkKod(int &kod, int count)
+void checkKod(int& kod, int count)
 {
 	cout << endl << "Для продолжения работы программы нажмите 1" << endl;
 	cout << "Для выхода из программы нажмите 0" << endl;

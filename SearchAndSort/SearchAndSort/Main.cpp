@@ -12,30 +12,30 @@ struct Staff
 
 using namespace std;
 
-void create(FILE *);
-void add(FILE *, Staff *, int &);
-void view(FILE *, Staff *);
-void searchLinear(Staff *, int);
-void sortSelection(Staff *, int);
-void conclution(Staff *, int);
-void quickSort(Staff *, int, int);
-void binarySearch(Staff *, int);
+void create(FILE*);
+void add(FILE*, Staff*, int&);
+void view(FILE*, Staff*);
+void searchLinear(Staff*, int);
+void sortSelection(Staff*, int);
+void conclution(Staff*, int);
+void quickSort(Staff*, int, int);
+void binarySearch(Staff*, int);
 
-void checkIn(int &);
-void check(FILE *);
+void checkIn(int&);
+void check(FILE*);
 
 int siz = sizeof(Staff);
 
 const char WAYDAT[] = "../Out/Data.dat";
 
-int main(){
+int main() {
 	setlocale(LC_ALL, ".UTF8");
 	bool flag = false;
 
 	while (1) {
 
-		Staff temp, *arr;
-		FILE *fst;
+		Staff temp, * arr;
+		FILE* fst;
 		int count = 0, kod, kol = 1;
 		long len;
 
@@ -44,11 +44,11 @@ int main(){
 		kol = len / siz;
 		arr = new Staff[kol];
 		for (int i = 0; i < kol; i++)
-		fread(&arr[i], siz, 1, fst);
+			fread(&arr[i], siz, 1, fst);
 		fclose(fst);
-		
-		cout << "1 - Создание" << endl << "2 - Добавление" << endl << "3 - Просмотр" << endl << "4 - Линейный поиск" 
-			<< endl << "5 - Сортировка методом прямого выбора" << endl << "6 - Сортировка методом QuickSort" 
+
+		cout << "1 - Создание" << endl << "2 - Добавление" << endl << "3 - Просмотр" << endl << "4 - Линейный поиск"
+			<< endl << "5 - Сортировка методом прямого выбора" << endl << "6 - Сортировка методом QuickSort"
 			<< endl << "7 - Двоичный поиск" << endl << "0 - Выход" << endl;
 		while (1) {
 			checkIn(kod);
@@ -99,13 +99,13 @@ int main(){
 	}
 }
 
-void create(FILE *fst) {
+void create(FILE* fst) {
 	check(fst);
 	fclose(fst);
 	puts("Create new file\n");
 }
 
-void add(FILE *fst, Staff *temp, int &count) {
+void add(FILE* fst, Staff* temp, int& count) {
 	count++;
 	check(fst);
 	cout << endl << "Введите:" << endl << "Фамилию и инициалы" << endl;
@@ -121,7 +121,7 @@ void add(FILE *fst, Staff *temp, int &count) {
 	cout << endl << "Сотрудник добавлен!" << endl << endl;
 }
 
-void view(FILE *fst, Staff *t)
+void view(FILE* fst, Staff* t)
 {
 	while (1) {
 		if (fread(&(*t), siz, 1, fst) == 0) break;
@@ -131,7 +131,7 @@ void view(FILE *fst, Staff *t)
 	fclose(fst);
 }
 
-void searchLinear(Staff *arr, int kol)
+void searchLinear(Staff* arr, int kol)
 {
 	int key;
 	bool flag = false;
@@ -148,7 +148,7 @@ void searchLinear(Staff *arr, int kol)
 		cout << "Сотрудник не найден!" << endl << endl;
 }
 
-void sortSelection(Staff *arr, int kol) {
+void sortSelection(Staff* arr, int kol) {
 	int i, j;
 	Staff rez;
 	for (i = 0; i < kol - 1; i++)
@@ -160,14 +160,14 @@ void sortSelection(Staff *arr, int kol) {
 			}
 }
 
-void conclution(Staff *arr, int kol) {
+void conclution(Staff* arr, int kol) {
 	cout << endl;
 	for (int i = 0; i < kol; i++)
 		cout << arr[i].FIO << endl;
 	cout << endl;
 }
 
-void quickSort(Staff *a, int begin, int end)
+void quickSort(Staff* a, int begin, int end)
 {
 	int left, right, x;
 	Staff rez;
@@ -189,16 +189,16 @@ void quickSort(Staff *a, int begin, int end)
 	if (left < end) quickSort(a, left, end);
 }
 
-void binarySearch(Staff *a, int  kol)
+void binarySearch(Staff* a, int  kol)
 {
 	int i = 0, j = kol - 1, m, key;
 	cout << endl << "Введите дату начала работы для поиска" << endl;
 	cin >> key;
 	while (i < j) {
 		m = (i + j) / 2;
-		if (key > a[m].date) 
+		if (key > a[m].date)
 			i = m + 1;
-		else 
+		else
 			j = m;
 	}
 	cout << "\tРезультат" << endl;
@@ -208,7 +208,7 @@ void binarySearch(Staff *a, int  kol)
 		cout << endl << "Сотрудник не найден!" << endl << endl;
 }
 
-void checkIn(int &number)
+void checkIn(int& number)
 {
 	while (true) {
 		cin >> number;
@@ -222,7 +222,7 @@ void checkIn(int &number)
 	}
 }
 
-void check(FILE *f)
+void check(FILE* f)
 {
 	if (f == NULL) {
 		puts("\nError!");
@@ -272,32 +272,32 @@ void check(FILE *f)
 
 	delete[]b;*/
 
-/*
-int i, j;
-Staff rez;
-for (i = 0; i < kol - 1; i++)
-	for (j = i + 1; j < kol; j++)
-		if (arr[i].dept < arr[j].dept) {
-			rez = arr[j];
-			arr[j] = arr[i];
-			arr[i] = rez;
-		}
-*/
-
-/*int i, j, k = 0;
-	Staff *b, rez;
-	b = new Staff[kol];
-	for (i = 0; i < kol - 1; i++) {
+	/*
+	int i, j;
+	Staff rez;
+	for (i = 0; i < kol - 1; i++)
 		for (j = i + 1; j < kol; j++)
-			if (arr[i].dept == arr[j].dept) {
-				rez = arr[i];
-				b[k] = arr[j];
-				k++;
+			if (arr[i].dept < arr[j].dept) {
+				rez = arr[j];
+				arr[j] = arr[i];
+				arr[i] = rez;
 			}
-		if (k != 0) break;
-	}
-	b[k++] = rez;
-	for (i = 0; i < kol; i++)
-		cout << b[i].FIO << endl;
+	*/
 
-	delete[]b;*/
+	/*int i, j, k = 0;
+		Staff *b, rez;
+		b = new Staff[kol];
+		for (i = 0; i < kol - 1; i++) {
+			for (j = i + 1; j < kol; j++)
+				if (arr[i].dept == arr[j].dept) {
+					rez = arr[i];
+					b[k] = arr[j];
+					k++;
+				}
+			if (k != 0) break;
+		}
+		b[k++] = rez;
+		for (i = 0; i < kol; i++)
+			cout << b[i].FIO << endl;
+
+		delete[]b;*/

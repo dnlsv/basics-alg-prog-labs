@@ -8,25 +8,25 @@ using namespace std;
 
 struct Stack {
 	int info;
-	Stack * next;
+	Stack* next;
 };
 
 Stack* InStack(Stack*, int);
 void View(Stack*);
-void Del_All(Stack **);
-double SrAr(Stack  *);
-Stack* Del(Stack *, int, int&);
-void Sort_p(Stack **);
-void Sort_info(Stack *);
-void checkNumber(int &);
+void Del_All(Stack**);
+double SrAr(Stack*);
+Stack* Del(Stack*, int, int&);
+void Sort_p(Stack**);
+void Sort_info(Stack*);
+void checkNumber(int&);
 
 int main() {
 	setlocale(LC_ALL, ".UTF8");
 	int i, in, n, kod, count;
-	Stack *begin = 0;
+	Stack* begin = 0;
 	cout << "-------Stack-------" << endl;
 	while (true) {
-		cout << endl << "1 - Create." << endl << "2 - Add." << endl << "3 - View." << endl << "4 - Del." << endl << "5 - Task." 
+		cout << endl << "1 - Create." << endl << "2 - Add." << endl << "3 - View." << endl << "4 - Del." << endl << "5 - Task."
 			<< endl << "6 - Sort Address." << endl << "7 - Sort Info." << endl << "0 - EXIT." << endl;
 		checkNumber(kod);
 		switch (kod) {
@@ -59,7 +59,7 @@ int main() {
 			cout << "Memory Free!" << endl;
 			break;
 		case 5:
-			if (!begin) 
+			if (!begin)
 				cout << "Stack Pyst!" << endl;
 			else {
 				count = 0;
@@ -95,15 +95,15 @@ int main() {
 	}
 }
 
-Stack* InStack(Stack  *p, int  in) {
-	Stack *t = new Stack;
+Stack* InStack(Stack* p, int  in) {
+	Stack* t = new Stack;
 	t->info = in;
 	t->next = p;
 	return   t;
 }
 
-void View(Stack *p) {
-	Stack *t = p;
+void View(Stack* p) {
+	Stack* t = p;
 	if (p == NULL) {
 		cout << "Stack Pyst!" << endl;
 		return;
@@ -114,8 +114,8 @@ void View(Stack *p) {
 	}
 }
 
-void  Del_All(Stack  **p) {
-	Stack *t;
+void  Del_All(Stack** p) {
+	Stack* t;
 	while (*p != NULL) {
 		t = *p;
 		*p = (*p)->next;
@@ -123,15 +123,15 @@ void  Del_All(Stack  **p) {
 	}
 }
 
-Stack* Del(Stack *b, int in, int &count)
+Stack* Del(Stack* b, int in, int& count)
 {
 	double Sr;
 	Sr = SrAr(b);
 	cout << "Average: " << Sr << endl;
-	Stack *t;
-	b = InStack(b, in);	    
-	Stack *p = b;
-	t = p->next;	           
+	Stack* t;
+	b = InStack(b, in);
+	Stack* p = b;
+	t = p->next;
 	while (t != NULL) {
 		if (t->info < Sr) {
 			count++;
@@ -144,13 +144,13 @@ Stack* Del(Stack *b, int in, int &count)
 			t = t->next;
 		}
 	}
-	t = b;			
+	t = b;
 	b = b->next;
 	delete t;
 	return b;
 }
 
-double SrAr(Stack *t) {
+double SrAr(Stack* t) {
 	double sum = 0, k = 0, Sr;
 	while (t != NULL) {
 		sum += t->info;
@@ -161,8 +161,8 @@ double SrAr(Stack *t) {
 	return Sr;
 }
 
-void Sort_p(Stack **p) {
-	Stack *t = NULL, *t1, *r;
+void Sort_p(Stack** p) {
+	Stack* t = NULL, * t1, * r;
 	if ((*p)->next->next == NULL) return;
 	do {
 		for (t1 = *p; t1->next->next != t; t1 = t1->next)
@@ -176,8 +176,8 @@ void Sort_p(Stack **p) {
 	} while ((*p)->next->next != t);
 }
 
-void Sort_info(Stack *p) {
-	Stack *t = NULL, *t1;
+void Sort_info(Stack* p) {
+	Stack* t = NULL, * t1;
 	int r;
 	do {
 		for (t1 = p; t1->next != t; t1 = t1->next)
@@ -191,7 +191,7 @@ void Sort_info(Stack *p) {
 }
 
 
-void checkNumber(int &number)
+void checkNumber(int& number)
 {
 	while (true) {
 		cin >> number;
